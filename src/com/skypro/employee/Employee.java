@@ -1,6 +1,7 @@
 package com.skypro.employee;
 
-public class Employee {
+//имплементируем интерфейс Comperable для реализации функционала сравнения полей объектов
+public class Employee implements Comparable {
     private String fullName;
     private int department;
     private int salary;
@@ -14,8 +15,6 @@ public class Employee {
         this.salary = salary;
         this.id = couter++;
     }
-
-
 
     public String getFullName() {
         return fullName;
@@ -44,6 +43,32 @@ public class Employee {
 
     public int getId() {
         return id;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "fullName='" + fullName + '\'' +
+                ", department=" + department +
+                ", salary=" + salary +
+                ", id=" + id +
+                '}';
+    }
+
+    //перезагружаем метод
+    @Override
+    public int compareTo(Object obj) {
+        Employee emp = (Employee) obj;
+        if (this.department < emp.department) {
+            //текущее значение меньше полученного
+            return -1;
+        }
+        else if (this.department > emp.department) {
+            //текущее занчение больше полученного
+            return 1;
+        }
+        //текущее значение равно полученному
+        return 0;
     }
 
 }
