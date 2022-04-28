@@ -36,7 +36,8 @@ public class EmployeeBook {
             }
         }
     }
-
+    
+    //метод ищет сотрудника по имени и меняет номер отдела
     public void changeDepartment(String fullName, int newDepartment) {
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] != null && arr[i].getFullName().equals(fullName)) {
